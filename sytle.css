@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .clickable {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 10px;
+  }
+  
+  .hidden-text, .hidden-clickable {
+    display: none;
+    opacity: 0;
+    margin-top: 10px;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
