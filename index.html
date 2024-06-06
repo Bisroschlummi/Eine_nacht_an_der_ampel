@@ -14,6 +14,11 @@
       background-color: black;
     }
 
+    .titel {
+      width: 50%;
+      height: 50%
+      flex
+    }
     .container {
       width: 100%;
       max-width: 1200px;
@@ -22,19 +27,26 @@
 
     #model-viewer-container {
             width: 600px;
+            max-width: 800px;
             height: 600px;
             align-items: center;
         }
         model-viewer {
-            width: 100%;
-            height: 100%;
+            width: 600px;
+            max-width: 800px;
+            height: 600px;
+            align-items: center;
+            
             
         }
   </style>
 </head>
 <body>
-    <h12>du bist nachts auf dem weg nach hause.</h12>
-    <div>du schaust auf deine uhr.</div>
+
+    <div class="title"><img src="img/titel.png" alt="">
+    </div>
+  <h12>du bist nachts auf dem weg nach hause.</h12>
+  <div>du schaust auf deine uhr.</div>
   <div id="text1" class="hidden-text"><img src="img/clock1.png" alt="clock1"></div>
 
   <div>du biegst in die straße vor deinem haus ab
@@ -93,22 +105,17 @@
                 animation-name="CubeAction" 
                 animation-loop>  
     </model-viewer>
-<script>
-async function checkARCoreCompatibility() {
-    const modelViewer = document.getElementById('model-viewer');
-    const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-    if (!isARCoreSupported) {
-        modelViewer.removeAttribute('ar');
-        modelViewer.removeAttribute('ar-modes');
-    }
-}
+    <script>
+      async function checkARCoreCompatibility() {
+          const modelViewer = document.getElementById('model-viewer');
+          const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
+          if (!isARCoreSupported) {
+              modelViewer.removeAttribute('ar');
+              modelViewer.removeAttribute('ar-modes');
 
-document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-</script>
+          }
+      }
 
-
-    </div>
-
-
-  <script src="script.js"></script>
+      document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
+  </script>
 </html>
