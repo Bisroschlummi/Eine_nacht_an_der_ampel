@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Ampel</title>
+  <title>Eine Nacht an der Ampel</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -21,17 +21,15 @@
     }
 
     #model-viewer-container {
-            width: 100%;
+            width: 1vh;
             max-width: 700px;
             margin-left: 50%;
             display: flex;
+            align-items: center;
         }
         model-viewer {
-            width: 400px;
-            height: 400px;
-            margin-left: -260px;
-            padding-top: 140px;
-            padding-left: 140px;
+            width: 100%;
+            
         }
   </style>
 </head>
@@ -79,21 +77,22 @@
         es ist zeit schlafen zu gehen.
         du überquerst die straße.
         steckst deinen schlüssel in die tür und begibst dich in deine wohnung.
-        vom fenster aus siehst du auf die leblose ampel hinunter.
+        vom fenster aus siehst du auf die kalte ampel hinunter.
         morgen wird sie wieder leuchten.
         ihr werdet euer spiel wiederholen.
         aber diesmal vertrauter.
 
         <model-viewer 
         id="model-viewer"
-        src="img/ampel.glb"
-        alt="Kunsthalle AR Show"
-        ar-modes="webxr scene-viewer quick-look" 
-        environment-image="neutral" 
-        auto-rotate
-        camera-controls
-        animation-name="CubeAction" 
-        animation-loop>  
+                src="img/ampel.glb"
+                alt="Kunsthalle AR Show"
+                ar
+                ar-modes="webxr scene-viewer quick-look" 
+                environment-image="neutral" 
+                auto-rotate
+                camera-controls
+                animation-name="CubeAction" 
+                animation-loop>  
     </model-viewer>
 <script>
 async function checkARCoreCompatibility() {
@@ -102,7 +101,6 @@ async function checkARCoreCompatibility() {
     if (!isARCoreSupported) {
         modelViewer.removeAttribute('ar');
         modelViewer.removeAttribute('ar-modes');
-        alert('Your device is not compatible with AR features. You can still view the 3D model.');
     }
 }
 
