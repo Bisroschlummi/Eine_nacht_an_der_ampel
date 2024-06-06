@@ -38,6 +38,21 @@
             
             
         }
+    #arButton {
+         padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          background-color: #fff;
+          border: none;
+          border-radius: 5px;
+        } 
+    a {
+        color: #1e90ff;
+        text-decoration: none;
+     }
+     a:hover {
+       text-decoration: underline;
+        }       
   </style>
 </head>
 <body>
@@ -104,17 +119,28 @@
                 animation-name="CubeAction" 
                 animation-loop>  
     </model-viewer>
+    <button id="arButton"><img src="img/knopf.png" alt=""></button>
+    <div id="container"></div>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
     <script>
-      async function checkARCoreCompatibility() {
-          const modelViewer = document.getElementById('model-viewer');
-          const isARCoreSupported = await navigator.xr.isSessionSupported('immersive-ar');
-          if (!isARCoreSupported) {
-              modelViewer.removeAttribute('ar');
-              modelViewer.removeAttribute('ar-modes');
-              alert('Your device is not compatible with AR features. You can still view the 3D model.');
-          }
-      }
+        document.addEventListener('DOMContentLoaded', () => {
+            const arButton = document.getElementById('arButton');
+            const container = document.getElementById('container');
 
-      document.addEventListener('DOMContentLoaded', checkARCoreCompatibility);
-  </script>
+            arButton.addEventListener('click', () => {
+                arButton.style.display = 'none';
+                container.style.display = 'block';
+                container.innerHTML = `
+                    <a-scene embedded arjs>
+                        <a-marker preset="hiro">
+                            <a-box position='0 0.5 0' material='color: red;'></a-box>
+                        </a-marker>
+                        <a-entity camera></a-entity>
+                    </a-scene>
+                `;
+            });
+        });
+    </script>
+    <h6><img src="img/insta.png" alt="">instagram: <a href="https://www.instagram.com/bisroschlummi/" target="_blank">@bisroschlummi</a></h6>
 </html>
